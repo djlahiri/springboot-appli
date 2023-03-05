@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Job Application Form</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+    <h1>Job Application Form</h1>
+    
+    <div th:if="${param.success}">
+					<div class="alert alert-info">You've successfully applied to the job
+						to our awesome app!</div>
+				</div>
+    <form action="#" th:action="@{/submit}" th:object="${application}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" th:field="*{name}" required/><br/>
+        
+        <label for="email">Email:</label>
+        <input type="email" th:field="*{email}" required/><br/>
+        
+        <label for="phone">Phone:</label>
+        <input type="tel" th:field="*{phone}" required/><br/>
+        
+        <label for="resume">Resume:</label>
+        <input type="file" th:field="*{resume}" accept=".pdf,.doc,.docx"/><br/>
+        
+        <label for="coverLetter">Cover Letter:</label>
+        <textarea th:field="*{coverLetter}" rows="5" cols="50" required></textarea><br/>
+        
+        <input type="submit" value="Submit"/>
+    </form>
+</body>
+</html>
